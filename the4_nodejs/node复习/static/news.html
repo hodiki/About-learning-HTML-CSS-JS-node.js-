@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 前端渲染 -->
+    <div>
+        <ul id="wrap">
+
+        </ul>
+    </div>
+    <img src="http://cms-bucket.nosdn.127.net/2018/11/10/e8e26a36ac9947f5b149d12bfbfe1b31.png?imageView&thumbnail=600y300&quality=85"
+        alt="">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script>
+        setTimeout(function () {
+            $.ajax({
+                type: "GET",
+                url: "/news",
+                data: {},
+                success: function (e) {
+                    var html = ''
+                    e.forEach(e => {
+                        html += `
+                    <li>
+                        <h2>${e.title}</h2>
+                        <p>${e.intro}</p>
+                    </li>
+                    `
+                    })
+                    $('#wrap').html(html)
+                }
+            })
+        }, 4000)
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../js/jquery-2.1.0.js"></script>
+    <title>Document</title>
+    <style>
+        .price {
+            color: #ff6700;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>已添加到购物车商品</h3>
+    <ul id="shop-list">
+
+    </ul>
+    <ul>
+        <h3>全部商品</h3>
+        <li>
+            小米霹雳无敌版 1200g内存
+            <p class="price">199</p>
+            <button class="buy-button" data-index="0">购买</button>
+        </li>
+        <li>
+            小米霹雳无敌版 120g内存
+            <p class="price">1999</p>
+            <button class="buy-button" data-index="1">购买</button>
+        </li>
+        <li>
+            小米霹雳无敌版 0g内存
+            <p class="price">19999</p>
+            <button class="buy-button" data-index="2">购买</button>
+        </li>
+    </ul>
+    <script>
+
+        var getData = function () {
+            $.ajax({
+                url: 'http://127.0.0.1:3000/get',
+                type: 'GET',
+                data: {},
+                success: function (e) {
+                    console.log(e)
+                    render(e)
+                }
+            })
+        }
+        getData()
+        var ul = document.getElementById('shop-list')
+        var li = '<li class="deli">{*place*}</li>'
+        var debutton
+        var render = function (arr) {
+            // 渲染购物车
+            ul.innerHTML = ''
+            var html = ''
+            arr.forEach((item, index) => {
+                html += li.replace('{*place*}', item.name + ' | ' + item.price+'<button type="button" class="debutton">delete</button>')
+            })
+            ul.innerHTML = html     //2 
+            get_debutton_deli(); 
+            console.log(debutton)
+        }
+
+        var buyButton = document.getElementsByClassName('buy-button')
+        for (let i = 0; i < buyButton.length; i++) {
+            buyButton[i].addEventListener('click', function () {
+                var index = this.getAttribute('data-index')
+                //开始购买
+                $.ajax({
+                    url: 'http://127.0.0.1:3000/add',
+                    type: 'GET',
+                    data: {
+                        id: index
+                    },
+                    success: function (e) {
+                        console.log(e)
+                        getData()
+                    }
+                })
+                // 获取数据填充购物车列表
+
+            })
+        }
+        var ii=''
+        var deliing =function(){
+            for (let i = 0; i < deli.length; i++) {         
+            deli[i].addEventListener('click', function () {
+                ii=i
+                if(deli.length==1){
+                    i=0
+                }
+                ul.removeChild(deli[i])
+                //开始购买
+                $.ajax({
+                    url: 'http://127.0.0.1:3000/delete',
+                    type: 'GET',
+                    data: {
+                        delis:ii
+                    },
+                    success: function (e) {
+                        console.log(e)
+                        getData()
+                    }
+                })
+                location.reload() //不刷新就报错，getdata()都没有用
+                // 删除购物车列表
+
+            })
+        }
+        }
+        var get_debutton_deli=function(){
+            debutton = document.getElementsByClassName('debutton')
+            deli =document.getElementsByClassName('deli')
+            if(debutton!=null && deli!=null){
+                deliing();
+            }else{
+                get_debutton_deli();
+            }
+        }  
+
+
+    </script>
+</body>
+
+</html>

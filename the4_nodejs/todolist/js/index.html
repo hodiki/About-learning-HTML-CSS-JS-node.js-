@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="http://127.0.0.1:32861/jquery-2.1.0.js"></script>
+    <title>Document</title>
+    <style>
+        /* li{
+            list-style:none;
+            } */
+    </style>
+</head>
+
+<body>
+    <form action="http://127.0.0.1:32861/ss" method="POST" target="rfFrame">
+        <input type="text" name="add">
+        <input type="submit" value="添加" id="addbutton">
+    </form>
+    <iframe id="rfFrame" name="rfFrame" src="about:blank" style="display:none;"></iframe> 
+    <div id="div_mylist">
+        <ul id="ul_mylist">
+
+        </ul>
+    </div>
+    <script>
+        var ul=document.getElementById('ul_mylist')
+        var li = '<li class="documets">{*place*}</li>'
+        var getData = function () {
+            $.ajax({
+                url: 'http://127.0.0.1:32861/get',
+                type: 'GET',
+                data: {},
+                success: function (e) {
+                    console.log(e)
+                    render(e)
+                }
+            })
+        }
+        getData()
+        var render = function (arr) {
+            // 渲染mylist
+            ul.innerHTML = ''
+            var html = ''
+            arr=JSON.parse(arr) //express没有设置json响应头，要么设一个，要么解析结构
+            // console.log(typeof(arr))
+            arr.forEach((item, index) => {
+                html += li.replace('{*place*}', item.name + '<button type="button" class="debutton">X</button>')
+            })
+            ul.innerHTML = html     //2 
+            get_debutton_deli(); 
+            console.log(html)
+        }
+
+        var addbutton=document.getElementById('addbutton')
+        $(addbutton).click(function(){
+            location.reload()
+        })
+
+        var ii=''
+        var deliing =function(){
+            for (let i = 0; i < deli.length; i++) {         
+            debutton[i].addEventListener('click', function () {
+                ii=i
+                if(deli.length==1){
+                    i=0
+                }
+                ul.removeChild(deli[i])
+                //开始购买
+                $.ajax({
+                    url: 'http://127.0.0.1:32861/delete',
+                    type: 'GET',
+                    data: {
+                        delis:ii
+                    },
+                    success: function (e) {
+                        console.log(e)
+                        getData()
+                    }
+                })
+                location.reload() //不刷新就报错，getdata()都没有用
+                // 删除购物车列表
+
+            })
+        }
+        }
+        var get_debutton_deli=function(){
+            deli =document.getElementsByClassName('documets')
+            debutton = document.getElementsByClassName('debutton')
+            if(debutton!=null && deli!=null){
+                deliing();
+            }else{
+                get_debutton_deli();
+            }
+        }  
+    </script>
+</body>
+
+</html>

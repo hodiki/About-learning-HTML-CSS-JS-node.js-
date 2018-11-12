@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="400" height="300"></canvas>
+    <script>
+        var canvas = document.getElementById('canvas')
+        var ctx = canvas.getContext('2d')
+
+        canvas.addEventListener('mousemove', function (e) {
+            canvas.width =canvas.width
+            var grd = ctx.createRadialGradient(e.layerX, e.layerY, 40, 200, 150, 400)
+            grd.addColorStop(0, 'red')
+            grd.addColorStop(1, 'blue')
+
+            ctx.fillStyle = grd
+            ctx.rect(0, 0, 400, 300)
+            ctx.fill()
+        })
+
+        var grd = ctx.createRadialGradient(200, 150, 40, 200, 150, 400)
+        grd.addColorStop(0, 'red')
+        grd.addColorStop(1, 'blue')
+
+        ctx.fillStyle = grd
+        ctx.rect(0, 0, 400, 300)
+        ctx.fill()
+    </script>
+</body>
+
+</html>

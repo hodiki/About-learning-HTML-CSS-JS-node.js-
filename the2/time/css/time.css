@@ -1,0 +1,54 @@
+body{
+	font-size: 50px;
+}
+.time{
+	display: inline-block;
+}
+.xm{
+	position: relative;
+	display: inline-block;
+	height: 339px;
+	width: 234px;
+	background-color: #FAFAFA;
+	border-top: 1px solid #FFD26B;
+	font-size: 24px;
+}
+#xm1{
+	top:-88px;
+	left: 1px;
+	position: relative;
+	background-color: #F1EDED;
+	border-top: 1px solid #E53935;
+}
+#xm11{
+	left: 73px;
+	top: 32px;
+	position: relative;
+	font-size: 21px;
+	color: rgb(239,58,59);
+}
+#xmimg{
+	left: 96px;
+	top: 41px;
+	position: relative;
+}
+#xm12{
+	left: 67px;
+	top: 53px;
+	position: relative;
+	font-size: 15px;
+	color: rgb(0,0,0,0.54);
+}
+.xmtime{
+	left: 63px;
+	top: 46px;
+	position: relative;
+	font-size: 24px;
+	display: inline-block;
+}
+.xmtimefh{
+	left: 63px;
+	top: 46px;
+	position: relative;
+	display: inline-block;
+}

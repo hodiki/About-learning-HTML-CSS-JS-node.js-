@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="./css/index.css"> -->
+</head>
+
+<body>
+    首页
+    性感代码在写虐年哥
+
+    <!-- 留言板 -->
+    <h3>你有什么意见？</h3>
+    <form action="/submit" id="form" method="POST" enctype="multipart/form-data">
+        <!-- www-x-form-urlencoded -->
+        <!-- <input type="text" placeholder="尽情写吧，反正我也不会改" name="content"> -->
+        <input type="file" name="file">
+        <input type="submit">
+    </form>
+    <h3>传完的图片会出现在下方</h3>
+    <div id="img-wrap">
+
+    </div>
+    <script>
+        var form = document.querySelector('#form')
+        var imgWrap = document.getElementById('img-wrap')
+        form.addEventListener('submit', function (e) {
+            e.preventDefault()
+            var uploadFile = function () {
+                var formData = new FormData(document.getElementById('form'))
+                var xhr = new XMLHttpRequest
+                xhr.open('POST', '/submit')
+                xhr.send(formData)
+                xhr.onreadystatechange = function () {
+                    if (this.readyState == 4) {
+                        var result = JSON.parse(xhr.response)
+                        var path = result.path
+
+                        var img = document.createElement('img')
+                        img.src = path
+
+                        imgWrap.appendChild(img)
+                    }
+                }
+            }
+            uploadFile()
+        })
+    </script>
+</body>
+
+</html>

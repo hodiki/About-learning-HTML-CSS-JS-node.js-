@@ -1,0 +1,10 @@
+#typeBox{
+	display: inline-block;
+	width: 1000px;
+	height: 600px;
+	background-color: black;
+	padding: 20px;
+	}
+	#typeBox{
+		color: white;
+	}

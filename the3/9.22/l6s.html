@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="img/iconfont.css">
+		<link rel="stylesheet" type="text/css" href="sucai/iconfont.css">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0px;
+				padding: 0px;          /*消去自动生成的边距*/
+			}
+			li{
+				list-style-type: none;
+			}
+			a{
+				cursor: pointer;
+				text-decoration: none;
+			}
+			.ha{
+				text-decoration: none;
+				color: #b0b0b0;
+				font-size: 12px;
+			}
+			.ha:hover{
+				color: #fff;
+			}
+			.lis:hover{
+				background-color: #ff6700;
+			}
+			.space{
+				color: rgb(66,66,66);
+				font-size: 12px;
+				margin-left: 3px;
+				margin-right: 3px;
+			}
+			.head_box{
+				width: auto;
+				height: 40px;
+				background-color: #333;
+			}
+			.h_box2{
+				width: 1226px;
+				height: 40px;
+				margin-left: 318.5px;
+				margin-right: 318.5px;
+			}
+			.sundry{
+				height: 40px;
+				line-height: 40px;
+			}
+			
+			.miui_list{
+				width: 234px;
+				height: 420px;
+				background-color: #333;
+				position: relative;
+				top: 0px;
+				left: 318.5px;
+				padding-top: 20px;
+				padding-bottom: 20px;
+			}
+			.account{
+				float: right;
+				height: 40px;
+				line-height: 40px;
+			}
+			.s_cart{
+				background-color: white;
+				float: right;
+				width: 120px;
+				height: 40px;
+				line-height: 40px;
+				text-align: center;
+				background-color: rgb(66,66,66);
+				color: rgb(176,176,176);
+			}
+			.s_cart:hover{
+				background-color: white;				
+			}
+			.s_cart:hover #ha_cart{
+				color: #ff6700;
+			}
+			.incart{
+				color: white;
+				font-size: 0px;
+				border: 0px;
+			}
+			.s_cart:hover .incart{
+				color: black;
+				line-height: 100px;
+				width: 300px;
+				height: 100px;
+				position: relative;
+				right: 180px;
+				border: 1px solid;
+				border-top: 0px;
+				border-color: gainsboro;
+				background-color: white;
+				font-size: 12px;
+				z-index: 999;
+			}
+			.iconfont{
+			}
+			.s_cart:hover .iconfont{
+				color: #FF6700;
+			}
+			.as1{
+				display: block;     /*赋予其盒模型属性*/
+				width: 234px;
+				height: 42px;
+				line-height: 42px;
+				color: white;
+				padding-left: 20px;
+				font-size: 14px;
+			}			
+			.ul1{
+				display: block;
+			}
+			.biger{
+				position: absolute;
+				right: 25px;
+				font-size: 16px;
+			}
+			.as1_hover{
+				
+			}
+			.miui_list .ul1 .lis .as1:hover .as1_hover{
+				width: 1000px;
+				height: 460px;
+				background-color: white;
+				position: absolute;
+				left: 234px;
+				top: 0px;
+				border:1px solid;
+				border-color: gainsboro;				
+			}
+			#ah1{
+				
+			}
+			.as1:hover .sh1{
+				height: 80px;
+				width: 240px;
+				display: inline-block;
+				line-height: 80px;
+				font-size: 14px;
+				text-align: center;
+				color: rgb(51,51,51);
+			}
+			.as1 .sh1:hover{
+				color: #FF6700;	
+			}
+			.sh1{
+				font-size: 0px;
+			}
+			.as1:hover .sh1 .img_as{
+				width: 40px;
+				height: 40px;
+				position: relative;
+				top: 15px;
+			}
+			.img_as{
+				width: 0px;
+				height: 0px;
+				/*overflow:hidden;*/				
+			}
+			.head_box2{
+				width: auto;
+				height: 100px;
+				line-height: 100px;
+			}
+			.h2_box2{
+				width:1226px;
+				height: 100px;
+				margin-left: 318.5px;
+				margin-right: 318.5px;
+			}
+			.head_logo{
+				height: 56px;
+				line-height: 56px;
+			}
+			.logo_a{
+				position: relative;
+				top: -23px;
+			}
+			.hundry2{
+				display: inline-block;
+				width: 820px;
+				height: 88px;
+				padding-top: 12px;
+				padding-left: 30px;
+				line-height: 88px;
+			}
+			.h2_li{
+				display: inline-block;
+				float: right;
+				padding-left: 10px;
+				padding-right: 10px;
+			}
+			.h2_lia{
+				color: rgb(51,51,51);
+				font-size: 16px;
+			}
+			#h2a1{
+				margin-right: 50px;
+			}
+			.h2_lia:hover{
+				color: #FF6700;
+			}
+			.h2_f1{
+				width: 302px;
+				height: 50px;
+				display: inline-block;
+				position: relative;
+				top: 25px;
+				float: right;
+			}
+			.h2f1_i1{
+				display: inline-block;
+				width: 223px;
+				height: 48px;
+				font-size: 14px;
+				padding: 1px 10px 1px 10px;
+				border: 1px solid;
+				border-color:gainsboro ;
+			}
+			.h2f1_i2{
+				display: inline-block;				
+				position: relative;
+				right: 6px;
+				width: 52px;
+				height: 52px;
+				border: 1px solid;
+				border-color: gainsboro;
+				float: right;
+				background-color: white;
+				color: gray;
+			}
+			.h2f1_i2:hover{
+				background-color: #FF6700;
+				color: white;
+				font-size:12px ;				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="head_box">
+			<div class="h_box2">
+				<span class="sundry">
+					<a class="ha">小米商城</a>
+					<span class="space">|</span>
+					<a class="ha">MIUI</a>	
+					<span class="space">|</span>
+					<a class="ha">loT</a>
+					<span class="space">|</span>
+					<a class="ha">云服务</a>
+					<span class="space">|</span>
+					<a class="ha">小爱开放平台</a>	
+					<span class="space">|</span>
+					<a class="ha">金融</a>	
+					<span class="space">|</span>
+					<a class="ha">有品</a>	
+					<span class="space">|</span>
+					<a class="ha">政企服务</a>	
+					<span class="space">|</span>
+					<a class="ha">Select Region</a>	
+					</span>
+					<span class="s_cart">
+						<a class="ha" id="ha_cart"><i class="iconfont icon-shopping-cart"></i> 购物车(0)<div class=" incart">这里啥都没有,你这个穷b</div></a>
+					</span>
+					<span class="account">
+					<a class="ha">登陆</a>
+					<span class="space">|</span>
+					<a class="ha">注册</a>
+					<span class="space">|</span>
+					<a class="ha">消息通知</a>
+					<span class="space">|</span>
+				</span>
+			</div>
+		</div>
+		<div class="head2_box">
+			<div class="h2_box2">
+				<span class="head_logo">
+					<a class="logo_a" href="//www.mi.com/index.html" target="_blank"><img src="img/微信截图_20180518184037.png" alt="" /></a>
+				</span>
+				<span class="hundry2">					
+					<ul class="h2_ul">
+						<li class="h2_li"><a href="" class="h2_lia" id="h2a1">社区</a></li>
+						<li class="h2_li"><a href="" class="h2_lia">服务</a></li>
+						<li class="h2_li"><a href="" class="h2_lia">智能硬件</a></li>
+						<li class="h2_li"><a href="" class="h2_lia">路由器</a></li>
+						<li class="h2_li"><a href="" class="h2_lia">新品</a></li>
+						<li class="h2_li"><a href="" class="h2_lia">盒子</a></li>
+						<li class="h2_li"><a href="" class="h2_lia">笔记本</a></li>
+						<li class="h2_li"><a href="" class="h2_lia">电视</a></li>
+						<li class="h2_li"><a href="" class="h2_lia">红米</a></li>
+						<li class="h2_li"><a href="" class="h2_lia">小米手机</a></li>
+					</ul>
+				</span>
+				<form action="" method="post" class="h2_f1">
+					<input class="h2f1_i1" type="text" value=""/>
+					<button type="submit" class="h2f1_i2"><i class="iconfont icon-fangdajing"></i></button>
+				</form>
+			</div>
+		</div>
+		<div class="miui_list">
+			<ul class="ul1">
+				<li class="lis"><a class="as1">手机 电话卡<span class="biger">></span>
+					<div class="as1_hover" id="ah1">
+							<span class="sh1">
+								<img class="img_as" id="img1_as1" src="//i1.mifile.cn/f/i/g/2015/cn-index/mix2s80-80white.png?width=80&height=80" alt="裂图了" />							
+								<span>小米MIX 2S</span>
+							</span>
+							<span class="sh1">
+								<img class="img_as" id="img1_as1" src="//i1.mifile.cn/f/i/g/2015/cn-index/mix2s80-80white.png?width=80&height=80" alt="裂图了" />							
+								<span>小米MIX 2S</span>
+							</span>
+							<span class="sh1">
+								<img class="img_as" id="img1_as1" src="//i1.mifile.cn/f/i/g/2015/cn-index/mix2s80-80white.png?width=80&height=80" alt="裂图了" />							
+								<span>小米MIX 2S</span>
+							</span>
+							<span class="sh1">
+								<img class="img_as" id="img1_as1" src="//i1.mifile.cn/f/i/g/2015/cn-index/mix2s80-80white.png?width=80&height=80" alt="裂图了" />							
+								<span>小米MIX 2S</span>
+							</span>
+							<span class="sh1">
+								<img class="img_as" id="img1_as1" src="//i1.mifile.cn/f/i/g/2015/cn-index/mix2s80-80white.png?width=80&height=80" alt="裂图了" />							
+								<span>小米MIX 2S</span>
+							</span>
+							<span class="sh1">
+								<img class="img_as" id="img1_as1" src="//i1.mifile.cn/f/i/g/2015/cn-index/mix2s80-80white.png?width=80&height=80" alt="裂图了" />							
+								<span>小米MIX 2S</span>
+							</span>
+							<span class="sh1">
+								<img class="img_as" id="img1_as1" src="//i1.mifile.cn/f/i/g/2015/cn-index/mix2s80-80white.png?width=80&height=80" alt="裂图了" />							
+								<span>小米MIX 2S</span>
+							</span>
+							<span class="sh1">
+								<img class="img_as" id="img1_as1" src="//i1.mifile.cn/f/i/g/2015/cn-index/mix2s80-80white.png?width=80&height=80" alt="裂图了" />							
+								<span>小米MIX 2S</span>
+							</span>
+							<span class="sh1">
+								<img class="img_as" id="img1_as1" src="//i1.mifile.cn/f/i/g/2015/cn-index/mix2s80-80white.png?width=80&height=80" alt="裂图了" />							
+								<span>小米MIX 2S</span>
+							</span>
+							<span class="sh1">
+								<img class="img_as" id="img1_as1" src="//i1.mifile.cn/f/i/g/2015/cn-index/mix2s80-80white.png?width=80&height=80" alt="裂图了" />							
+								<span>小米MIX 2S</span>
+							</span>
+							<span class="sh1">
+								<img class="img_as" id="img1_as1" src="//i1.mifile.cn/f/i/g/2015/cn-index/mix2s80-80white.png?width=80&height=80" alt="裂图了" />							
+								<span>小米MIX 2S</span>
+							</span>
+							<span class="sh1">
+								<img class="img_as" id="img1_as1" src="//i1.mifile.cn/f/i/g/2015/cn-index/mix2s80-80white.png?width=80&height=80" alt="裂图了" />							
+								<span>小米MIX 2S</span>
+							</span>
+					</div>
+				</a></li>
+				<li class="lis"><a class="as1">电视 盒子<span class="biger">></span>
+					<div class="as1_hover" id="ah2">
+							<span class="sh1">
+								<img class="img_as" id="img1_as1" src="//i1.mifile.cn/f/i/g/2015/cn-index/mix2s80-80white.png?width=80&height=80" alt="裂图了" />							
+								<span>小米MIX 2S</span>
+							</span>
+							<span class="sh1">
+								<img class="img_as" id="img1_as1" src="//i1.mifile.cn/f/i/g/2015/cn-index/mix2s80-80white.png?width=80&height=80" alt="裂图了" />							
+								<span>小米MIX 2S</span>
+							</span>
+							<span class="sh1">
+								<img class="img_as" id="img1_as1" src="//i1.mifile.cn/f/i/g/2015/cn-index/mix2s80-80white.png?width=80&height=80" alt="裂图了" />							
+								<span>小米MIX 2S</span>
+							</span>
+					</div>
+				</a></li>
+				<li class="lis"><a class="as1">笔记本<span class="biger">></span>
+					<div class="as1_hover" id="ah3">
+							<span class="sh1">
+								<img class="img_as" id="img1_as1" src="//i1.mifile.cn/f/i/g/2015/cn-index/mix2s80-80white.png?width=80&height=80" alt="裂图了" />							
+								<span>小米MIX 2S</span>
+							</span>
+							<span class="sh1">
+								<img class="img_as" id="img1_as1" src="//i1.mifile.cn/f/i/g/2015/cn-index/mix2s80-80white.png?width=80&height=80" alt="裂图了" />							
+								<span>小米MIX 2S</span>
+							</span>
+							<span class="sh1">
+								<img class="img_as" id="img1_as1" src="//i1.mifile.cn/f/i/g/2015/cn-index/mix2s80-80white.png?width=80&height=80" alt="裂图了" />							
+								<span>小米MIX 2S</span>
+							</span>
+							<span class="sh1">
+								<img class="img_as" id="img1_as1" src="//i1.mifile.cn/f/i/g/2015/cn-index/mix2s80-80white.png?width=80&height=80" alt="裂图了" />							
+								<span>小米MIX 2S</span>
+							</span>
+							<span class="sh1">
+								<img class="img_as" id="img1_as1" src="//i1.mifile.cn/f/i/g/2015/cn-index/mix2s80-80white.png?width=80&height=80" alt="裂图了" />							
+								<span>小米MIX 2S</span>
+							</span>
+					</div>
+				</a></li>
+				<li class="lis"><a class="as1">智能 家电<span class="biger">></span>
+					<div class="as1_hover" id="ah4"></div>
+				</a></li>
+				<li class="lis"><a class="as1">健康 家园<span class="biger">></span>
+					<div class="as1_hover" id="ah5"></div>
+				</a></li>
+				<li class="lis"><a class="as1">出行 儿童<span class="biger">></span>
+					<div class="as1_hover" id="ah6"></div>
+				</a></li>
+				<li class="lis"><a class="as1">路由器 手机配件<span class="biger">></span>
+					<div class="as1_hover" id="ah7"></div>
+				</a></li>
+				<li class="lis"><a class="as1">移动电源 插线板<span class="biger">></span>
+					<div class="as1_hover" id="ah8"></div>
+				</a></li>
+				<li class="lis"><a class="as1">耳机 音箱<span class="biger">></span>
+					<div class="as1_hover" id="ah9"></div>
+				</a></li>
+				<li class="lis"><a class="as1">生活 米兔<span class="biger">></span>
+					<div class="as1_hover" id="ah10"></div>
+				</a></li>				
+			</ul>			
+		</div>
+	</body>
+</html>

@@ -1,0 +1,6 @@
+name
+phonenumber
+weixin
+qq
+address
+isSingle

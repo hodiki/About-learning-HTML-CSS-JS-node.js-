@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- get 请求能在url中提取出来 -->
+    <!-- post请求需要的请求的body中提取 -->
+    <!-- <form action="http://127.0.0.1:3000/s" method="POST">
+        <input type="text" name="wd">
+        <input type="submit" value="百度一下">
+    </form> -->
+    <script>
+        var getJSON=function(json) {
+            console.log(json)
+        }
+    </script>
+    <script src="http://127.0.0.1:3000?callback=getJSON"></script>
+</body>
+</html>

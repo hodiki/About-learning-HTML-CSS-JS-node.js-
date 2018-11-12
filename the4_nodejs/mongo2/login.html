@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <form action="/login" method="POST">
+        <h3>登录</h3>
+        <div>
+            <input type="text" name="username">
+        </div>
+        <div>
+            <input type="password" name="password">
+        </div>
+        <input type="submit">
+    </form>
+
+    <form action="/register" method="POST">
+        <h3>注册</h3>
+        <div>
+            <input type="text" name="username" id="un">
+            <p id="alert" style="display:none;color: red;" >该账户已被注册</p>
+        </div>
+        <div>
+            <input type="password" name="password">
+        </div>
+        <input type="submit" value="注册">
+    </form>
+    <script>
+        var un = document.getElementById('un')
+        var al = document.getElementById('alert')
+        // al.style.display = 'none'
+        // al.style.color='red'
+
+        un.addEventListener('input', function () {
+            var value = this.value
+            var xhr = new XMLHttpRequest
+            xhr.open('get', '/checUsername?username=' + value)
+            xhr.send()
+            xhr.onreadystatechange = function () {
+                if (xhr.status === 200 && xhr.readyState == 4) {
+                    var result = JSON.parse(xhr.response).status
+                    if (result == 0) {
+                        al.style.display = 'block'
+                    } else {
+                        al.style.display = 'none'
+                    }
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>

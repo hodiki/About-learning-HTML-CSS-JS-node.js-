@@ -1,0 +1,128 @@
+*{
+  margin:0;
+  padding:0;
+}
+body{
+	background-color: black;
+}
+#square{
+	width: 800px;
+	height: 800px;
+	border: 1px solid forestgreen;
+	margin-left: 300px;
+	margin-top: 50px;
+	display: inline-block;
+	position: relative;
+	line-height: 800px;
+	text-align: center;
+	z-index: 1;
+}
+#line1{
+	top: 400px;
+	left: 0px;
+	width: 800px;
+	height: 1px;
+	background-color: forestgreen;
+	display: inline-block;
+	position: absolute;
+	z-index: 1;
+}
+#line2{
+	top: 0px;
+	left: 400px;
+	width: 1px;
+	height: 800px;
+	background-color: forestgreen;
+	display: inline-block;
+	position: absolute;
+	z-index: 1;
+}
+#circle1{
+	top: 95px;
+	left: 95px;
+	width: 600px;
+	height: 600px;
+	border-radius: 50%;	
+	border: 1px solid forestgreen;
+	display: inline-block;
+	position: absolute;
+	z-index: 2;
+	overflow: hidden;
+}
+#circle2{
+	top: 50px;
+	left: 50px;
+	width: 500px;
+	height: 500px;
+	border-radius: 50%;	
+	border: 1px solid forestgreen;
+	display: inline-block;
+	position: absolute;
+	z-index: 3;
+}
+#circle3{
+	top: 50px;
+	left: 50px;
+	width: 400px;
+	height: 400px;
+	border-radius: 50%;	
+	border: 1px solid forestgreen;
+	display: inline-block;
+	position: absolute;
+	z-index: 4;
+}
+#circle4{
+	top: 50px;
+	left: 50px;
+	width: 300px;
+	height: 300px;
+	border-radius: 50%;	
+	border: 1px solid forestgreen;
+	display: inline-block;
+	position: absolute;
+	z-index: 5;
+}
+#circle5{
+	top: 50px;
+	left: 50px;
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;	
+	border: 1px solid forestgreen;
+	display: inline-block;
+	position: absolute;
+	z-index: 6;
+}
+#circle6{
+	top: 50px;
+	left: 50px;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;	
+	border: 1px solid forestgreen;
+	display: inline-block;
+	position: absolute;
+	z-index: 7;
+}
+#scanning{
+	left: 49px;
+  top: -267px;
+  width: 315px;
+  height: 315px;
+	border: 1px;
+	border-left: 0px;
+	border-style: solid;
+	border-color: forestgreen;
+	display: inline-block;
+	position: absolute;
+	background: linear-gradient(to left, rgba(34,139,34,1), rgba(34,139,34,0));
+/*	transform: rotate(0deg);*/
+	transform-origin:left bottom;
+	animation: scanning 10s;
+	animation-iteration-count:infinite;
+	animation-timing-function:linear
+}
+@keyframes scanning{
+	from{transform: rotate(0deg);}
+	to{transform: rotate(360deg);}
+}

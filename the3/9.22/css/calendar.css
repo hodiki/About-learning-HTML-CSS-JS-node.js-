@@ -1,0 +1,184 @@
+			*{
+				margin: 0px;
+				padding: 0px;
+				/*消去自动生成的边距*/
+			}
+.cd	{
+	height: 1000px;
+	width: 695px;
+	background-color: #ff6700;
+	display: inline-block;
+	position: absolute;
+	z-index: 1;
+	left: 300px;
+}
+#backToday{
+	height: 100px;
+	width: 695px;
+	background-color: white;
+	font-size: 30px;
+	color: #FF6700;
+	text-align: center;
+	line-height: 100px;
+	position: absolute;
+	display: inline-block;
+	z-index: 2;
+}
+#backToday:hover{
+	background-color: #FF6700;
+	color: white;
+}
+.year{
+	top: 100px;
+	height: 98px;
+	width: 695px;
+	margin-top: 2px;
+	background-color: white;
+	font-size: 30px;
+	color: #FF6700;
+	text-align: center;
+	line-height: 100px;
+	position: absolute;
+	display: inline-block;
+	z-index: 2;
+}
+.month{
+	top: 200px;
+	height: 98px;
+	width: 695px;
+	margin-top: 2px;
+	background-color: white;
+	position: absolute;
+	display: inline-block;
+	font-size: 30px;
+	color: #FF6700;
+	text-align: center;
+	line-height: 100px;
+	z-index: 2;
+}
+.week{
+	top: 300px;
+	height: 98px;
+	width: 695px;
+	margin-top: 2px;
+	position: absolute;
+	display: inline-block;
+	font-size: 20px;
+	color: #FF6700;
+	line-height: 98px;
+	z-index: 2;
+	
+}
+.weeks{
+	height: 96px;
+	width: 92px;
+	margin: 1px;
+	position: relative;
+	display: inline-block;
+	background-color: white;
+	font-size: 20px;
+	color: #FF6700;
+	text-align: center;																
+	line-height: 98px;
+	z-index: 3;
+}
+.dayss{
+	top: 400px;
+	width: 695px;
+	height: 600px;
+	position: absolute;
+	display: inline-block;
+	z-index: 2;
+}
+.days{
+	height: 98px;
+	width: 93px;
+	position: relative;
+	display: inline-block;
+	margin: 1px;
+	background-color: white;
+	color: #FF6700;
+	font-size: 20px;
+	text-align: center;																
+	line-height: 98px;
+	z-index: 3;
+}
+.todays{
+	height: 98px;
+	width: 93px;
+	position: relative;
+	display: inline-block;
+	margin: 1px;
+	background-color: lightpink;
+	color: #FF6700;
+	font-size: 20px;
+	text-align: center;																
+	line-height: 98px;
+	z-index: 3;
+}
+.nodays{
+	height: 98px;
+	width: 93px;
+	position: relative;
+	display: inline-block;
+	margin: 1px;
+	background-color: #FF6700;
+	color: #FF6700;
+	font-size: 20px;
+	text-align: center;																
+	line-height: 98px;
+	z-index: 3;
+}
+#yearLeft{
+	height: 100px;
+	width: 100px;
+	position: relative;
+	display: inline-block;
+	color: #FF6700;
+	float: left;
+	z-index: 3;
+}
+#yearLeft:hover{
+	background-color: #FF6700;
+	color: white;
+}
+#yearRight{
+	height: 100px;
+	width: 100px;
+	position: relative;
+	display: inline-block;
+	color: #FF6700;
+	float: right;
+	z-index: 3;
+}
+#yearRight:hover{
+	background-color: #FF6700;
+	color: white;
+}
+#monthLeft{
+	height: 100px;
+	width: 100px;
+	position: relative;
+	display: inline-block;
+	color: #FF6700;
+	float: left;
+	z-index: 3;
+}
+#monthLeft:hover{
+	background-color: #FF6700;
+	color: white;
+}
+#monthRight{
+	height: 100px;
+	width: 100px;
+	position: relative;
+	display: inline-block;
+	color: #FF6700;
+	float: right;
+	z-index: 3;
+}
+#monthRight:hover{
+	background-color: #FF6700;
+	color: white;
+}
+

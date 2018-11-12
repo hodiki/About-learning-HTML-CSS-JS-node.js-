@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .jindutiao-wrap {
+            width: 500px;
+            height: 10px;
+            background-color: white;
+            border: solid black 1px;
+        }
+
+        .jindutiao {
+            width: 0px;
+            height: 100%;
+            background-color: hotpink;
+        }
+        .wrap{
+            position: relative;
+            width: 700px;
+        }
+        .wrap video{
+            width: 100%;
+        }
+        .danmu-wrap{
+            position: absolute;
+            left: 100%;
+            top: 0px;
+            height: 100%;
+        }
+        .danmu{
+            white-space: nowrap;
+            position: absolute;
+            left: 0px;
+            transition: all 5s linear;
+         }
+        .danmu.active{
+            left: -2000px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <video src="./1.mp4" id="video"></video>
+        <div>
+            <span id="nowTime">00:00</span>
+            /
+            <span id="totalTime"></span>
+        </div>
+        <input type="range" id="volume-control">
+        <div class="jindutiao-wrap">
+            <div class="jindutiao"></div>
+        </div>
+        <div class="danmu-wrap">
+            <p class="danmu">这是一条弹幕，这个大爷真骚。。。</p>
+        </div>
+    </div>
+
+    <script>
+        var video = document.getElementById('video')
+
+        //对象  => 属性、方法、事件
+        // video.play() 播放
+        // video.pause() 暂停
+        // video.webkitRequestFullscreen() 请求全屏
+
+        // video.duration 视频的总时长
+        // video.currentTime 视频播放到哪了 通过赋值改变视频播放时间点
+        // video.volume 视频的音量[0,1]、可以赋值改变音量
+        var nowTime = document.getElementById('nowTime')
+        var totalTime = document.getElementById('totalTime')
+
+        var jindutiao = document.getElementsByClassName('jindutiao')[0]
+
+        var secondToMin = function (second) {
+            var m = parseInt(second / 60)
+            if (m < 10) {
+                m = '0' + m
+            }
+            var s = parseInt(second % 60)
+            if (s < 10) {
+                s = '0' + s
+            }
+            return m + ':' + s
+        }
+
+        video.addEventListener('canplay', function () {
+            totalTime.innerHTML = secondToMin(video.duration)
+        })
+        video.addEventListener('timeupdate', function () {
+            nowTime.innerHTML = secondToMin(video.currentTime)
+            jindutiao.style.width = video.currentTime / video.duration * 500 + 'px'
+            compareDanmu()
+        })
+
+        video.addEventListener('click', function () {
+            // 如果video标签有 controls的话，click事件无法触发
+            console.log('click事件触发')
+        })
+        video.addEventListener('playing', function () {
+            console.log('playing 事件触发')
+        })
+        video.addEventListener('pause', function () {
+            console.log('pause 事件触发')
+        })
+
+        var test = function () {
+            video.play()
+            video.volume = 0
+        }
+        var handle = function () {
+            var intValue = parseInt(this.value)
+            video.volume = intValue / 100
+        }
+
+        var volumeControl = document.getElementById('volume-control')
+        volumeControl.addEventListener('input', handle)
+        
+        var danmu = [
+            {
+                time : 1000,
+                content : '大爷厉害了乐乐乐乐乐乐而乐乐乐乐乐乐乐乐乐乐勒尔乐乐乐乐乐乐乐乐乐乐乐乐乐乐乐乐乐而乐乐乐乐乐乐乐乐乐乐乐乐乐乐'
+            },
+            {
+                time : 1200,
+                content : '大爷摇摇头'
+            },
+            {
+                time : 1600,
+                content : '大爷摇摇头'
+            },
+            {
+                time : 1800,
+                content : '大爷摇摇头'
+            },
+            {
+                time : 3000,
+                content : '大爷摇摇头'
+            },
+            {
+                time : 3200,
+                content : '大爷摇摇头'
+            }
+        ]
+
+        danmu.sort(function(a,b){
+            return a.time - b.time
+        })
+        var danmuWrap = document.getElementsByClassName('danmu-wrap')[0]
+        var sendDanmu = function(text){
+            var p = document.createElement('p')
+            p.className = 'danmu'
+            p.innerHTML = text
+            p.style.top = Math.random() * 300 + 'px'
+            danmuWrap.appendChild(p)
+
+            setTimeout(function(){
+                p.className = 'danmu active'
+            },10)
+            setTimeout(function(){
+                danmuWrap.removeChild(p)
+                p = null
+            },5000)
+        }
+        var compareDanmu = function(){
+            if(danmu.length > 0 && video.currentTime * 1000 - danmu[0].time < 300){
+                var nowDanmu = danmu.shift()
+                console.log(nowDanmu)
+                sendDanmu(nowDanmu.content)
+            }
+            console.log('发送弹幕函数不断被触发')
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //arr shift 删除第一个元素       返回被删除的元素
+        //arr push  数组最后添加一个元素 返回数组的长度length
+        //arr pop   删除数组最后一个元素 返回被删除的元素
+        //arr join  将数组转化为字符串，返回这个转化的字符串
+        //arr splice(a,b,c) 将数组切掉一部分，从a开始切掉b个，并且塞入c
+        //arr slice(a,b)    将数组从a开始获取，获取b个
+        //arr reverse       将数组反转过来
+
+        var arr = [11, 3, 2, 14, 5]
+        // arr.forEach(function(value,index,array){
+        //     console.log(value,index,array)
+        // })
+
+        var brr = arr.filter(function (value, index, array) {
+            if (value % 2 == 0) {
+                return true
+            }
+        })
+
+        arr.sort(function (a, b) {
+            return b - a //正序
+            // return b-a //倒序
+        })
+
+        //arr forEach(fn) 传入fn，fn会拥有三个形参，分别为value\index\array
+        //arr filter
+    </script>
+</body>
+
+</html>

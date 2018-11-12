@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="1400" height="800"></canvas>
+    <script>
+        var canvas = document.getElementById('canvas')
+        var ctx = canvas.getContext('2d')
+
+        var Point = function (c) {
+            this.x = Math.random() * canvas.width
+            this.y = Math.random() * canvas.height
+            this.r = 20
+            this.c = c ? c : 'black'
+
+            
+            this.endPoint = {
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height
+            }
+            this.k = (this.endPoint.y - this.y) / (this.endPoint.x - this.x)
+            this.speed = Math.random()
+            this.xPlus = this.endPoint.x - this.x > 0 ? true : false
+            this.yPlus = this.endPoint.y - this.y > 0 ? true : false
+            this.pointChangeSave = []
+            this.updatePoint = function () {
+                this.x = this.endPoint.x
+                this.y = this.endPoint.y
+                this.endPoint.x = Math.random() * canvas.width
+                this.endPoint.y = Math.random() * canvas.height
+                this.k = (this.endPoint.y - this.y) / (this.endPoint.x - this.x)
+
+                this.pointChangeSave.push(this.endPoint)
+                if (this.endPoint.x > this.x) {
+                    this.xPlus = true
+                } else {
+                    this.xPlus = false
+                }
+
+                if (this.endPoint.y > this.y) {
+                    this.yPlus = true
+                } else {
+                    this.yPlus = false
+                }
+
+                if (this.k * this.speed > 10) {
+                    this.speed = 0.4
+                }
+                if (this.k * this.speed < -10) {
+                    this.speed = 0.4
+                }
+            }
+        }
+
+        var pointArr = []
+        for (var i = 0; i < 30; i++) {
+            pointArr.push(new Point())
+        }
+        var drawLine = function () {
+            // for (var i = 0; i < pointArr.length; i++) {
+            //     var nowPoint = pointArr[i]
+            //     var nextPoint
+            //     if(i == pointArr.length - 1){
+            //         nextPoint = pointArr[0]
+            //     } else {
+            //         nextPoint = pointArr[i+1]
+            //     }
+
+            //     ctx.moveTo(nowPoint.x , nowPoint.y)
+            //     ctx.lineTo(nextPoint.x , nextPoint.y)
+            //     ctx.stroke()
+            // }
+            for (var i = 0; i < pointArr.length; i++) {
+                for (var j = 0; j < pointArr.length; j++) {
+                    if (i == j) continue
+                    if (Math.abs( pointArr[j].y - pointArr[i].y) < 200 && Math.abs( pointArr[j].x - pointArr[i].x) < 200) {
+                        ctx.lineWidth = 1
+                        ctx.strokeStyle = '#aaa'
+                        ctx.moveTo(pointArr[i].x, pointArr[i].y)
+                        ctx.lineTo(pointArr[j].x, pointArr[j].y)
+                        ctx.stroke()
+                    }
+
+                }
+            }
+        }
+        var draw = function () {
+            for (var i = 0; i < pointArr.length; i++) {
+                var point = pointArr[i]
+                var k = Math.abs(point.k)
+                var b = 1
+                if (k > 1) {
+                    b = k * point.speed
+                } else {
+                    b = point.speed
+                }
+                if ( Math.abs( point.endPoint.x - point.x < b + 1) &&
+                Math.abs(point.endPoint.y - point.y < b + 1 )) {
+                    point.updatePoint()
+                } else {
+                    if (point.k > 0) {
+                        if (point.xPlus) {
+                            point.x += point.speed
+                            point.y += point.speed * point.k
+                        } else {
+                            point.x -= point.speed
+                            point.y -= point.speed * point.k
+                        }
+                    } else {
+                        if (point.xPlus) {
+                            point.x += point.speed
+                            point.y -= point.speed * Math.abs(point.k)
+                        } else {
+                            point.x -= point.speed
+                            point.y += point.speed * Math.abs(point.k)
+                        }
+                    }
+
+                    // if(point.xPlus){
+                    //     point.x += point.speed
+                    // } else {
+                    //     point.x -= point.speed
+                    // }
+
+                    // if(point.yPlus){
+                    //     point.y += point.speed * point.k
+                    // }else {
+                    //     point.y -= point.speed * point.k
+                    // }
+
+
+                }
+                if(Math.abs( point.x) > canvas.width || Math.abs( point.y )> canvas.height){
+                    pointArr.splice(i,1)
+                    console.log(point.pointChangeSave)
+                    pointArr.push(new Point('red'))
+                    continue
+                }
+                ctx.beginPath()
+                ctx.fillStyle = point.c
+                ctx.arc(point.x, point.y, 5, 0, Math.PI * 2, false)
+                ctx.fill()
+                ctx.closePath()
+            }
+        }
+
+        setInterval(function () {
+            canvas.width = canvas.width
+            drawLine()
+            draw()
+        }, 10)
+
+    </script>
+</body>
+
+</html>

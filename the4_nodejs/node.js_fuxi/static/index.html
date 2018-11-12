@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    123456
+
+    <form action="/submit" id="form" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit">
+    </form>
+
+    <script>
+        var form = document.querySelector('#form') //用ajax传输图片（文件）
+        form.addEventListener('submit',function(e){
+            e.preventDefault()
+            var uploadFile = function(){
+                var formData = new FormData(document.getElementById('form'))
+                var xhr = new XMLHttpRequest
+                xhr.open('POST','/submit')
+                xhr.send(formData)
+                xhr.onreadystatechange= function(){
+                    if(this.readyState == 4){
+                        console.log(xhr.response)
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas" width="1400" height="800"></canvas>
+	</body>
+	<script type="text/javascript">
+		var canvas = document.getElementById('canvas')
+        var ctx = canvas.getContext('2d')
+        
+        var Ball = function () {
+            this.x = 40
+            this.y = 40
+            this.r = 20
+            this.c = 0
+            this.k = 1
+            this.speed = 0.5
+            this.xPlus = true
+            this.yPlus = true
+            this.endPoint = {
+                x : 100,
+                y : 100
+            }
+          }
+        var pointArr = []
+        pointArr.push(new Ball())
+        
+        var i=0;
+        var ball = pointArr[i]
+        
+        var draw=function(){
+        canvas.height=canvas.height;
+		ctx.arc(ball.x, ball.y, ball.r, 0, Math.PI * 2, false)
+        ctx.fill()
+        }
+	</script>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .price {
+            color: #ff6700;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>结算商品</h3>
+    <ul id="shoplist">
+    </ul>
+    <h2 id="price">¥ 19999</h2>
+    <script src="../js/jquery-2.1.0.js"></script>
+    <script>
+
+        $.ajax({
+            url: 'http://127.0.0.1:3000/get',
+            type: 'GET',
+            data: {},
+            success: function (e) {
+                render(e)
+            }
+        })
+
+        var render = function (arr) {
+            var tpl = `
+        <li>
+            {*title*}
+            <p class="price">{*price*}</p>
+        </li>`
+            var html = ''
+            var count = 0
+            arr.forEach((item, index) => {
+                count += item.price
+                html += tpl.replace('{*title*}', item.name)
+                    .replace('{*price*}', item.price)
+            });
+            if (html === '') {
+                html = '<p style="color:red;">你什么都没买呢，穷逼～</p>'
+            }
+            document.getElementById('shoplist').innerHTML = html
+            document.getElementById('price').innerHTML = `总价格 ¥${count}`
+
+        }
+
+    </script>
+</body>
+
+</html>

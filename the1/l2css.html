@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+		<style type="text/css">
+			/*盒模型*/
+			*{
+				margin: 0px;
+				padding: 0px;
+			}/*将默认生成变为0px*/
+			.yes{
+				width: 200px;
+				height: 200px;
+				background-color: red;
+				
+				padding: 20px;
+				margin-top: 100px;
+				border-width: 20px;
+				border-color: pink;
+				border-style: solid;
+				
+				box-sizing: content-box;/*最终宽高                            padding border扩大盒模型*/
+				/*boder-box 压缩内容区*/
+				
+			}
+			.fuck{
+				width: 100px;
+				height: 100px;
+				background-color: black;
+				
+			}
+			span{
+				display: block;
+				width: 200px;
+				height: 200px;
+			}
+		</style>
+	</head>
+	<body>
+		<!--div 块容器/!-->
+		<!--span 内连容器/!-->
+		<div class="yes">
+			<div class="fuck">
+				
+			</div>
+		</div>
+		<span>
+			dffdf
+		</span>
+		<span>
+			2233
+		</span>
+	</body>
+</html>

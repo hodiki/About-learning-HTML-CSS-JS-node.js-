@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				margin: 0px;
+			}
+			.dady{
+				width: 300px;
+				height: 300px;
+				background-color: gray;
+				padding: 20px;
+				
+				border-width: 4px;
+				border-color: red;
+				border-style: solid;
+				
+				box-sizing: border-box;
+				/*content-box*/
+				/*最终宽高：width+padding+border*/
+				/*以content为基准设置宽高*/
+				/*padding，border：扩大盒模型*/
+				
+				/*border-box*/
+				/*最终宽高：width*/
+				/*以边框为基准，设置宽高*/
+				/*压缩内容区*/
+				
+				/*margin-top: -50px;*/
+			}
+			.baby{
+				/*width: 30%;
+				height: 100px;*/
+				background-color: black;
+			}
+			div{
+				
+			}
+			span{
+				display: inline-block;
+				width: 200px;
+				height: 200px;
+			}
+		</style>
+	</head>
+	<body>
+		<!--block块容器div：不能跟别人呆在一行-->
+		<!--可以设置宽高-->
+		<!--默认宽度：100%-->
+		
+		<!--inline内连容器span：可以跟别人呆在一行-->
+		<!--不能设置宽高的-->
+		<!--宽度：由内容决定-->
+		<div class="dady">
+			<div class="baby">
+				1
+			</div>
+		</div>
+		<!--<div class="dady">
+			<div class="baby">
+				
+			</div>
+		</div>-->
+		<span>这是基佬span1</span>
+		<span>这是基佬span2</span>
+	</body>
+</html>

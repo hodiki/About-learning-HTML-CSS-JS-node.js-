@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<style type="text/css">
+		* {
+		  margin: 0px;
+		  padding: 0px;/*消去自动生成的边距*/
+		}
+		#start{
+			display: block;
+			width: 50px;
+			height: 50px;
+			line-height: 50px;
+			background-color: deepskyblue;
+			border-radius: 50%;
+			text-align: center;
+		}
+			.jindutiaoWrap {
+            width: 500px;
+            height: 10px;
+            background-color: white;
+            border: solid black 1px;
+        }
+
+        .jindutiao {
+            width: 0px;
+            height: 100%;
+            background-color: hotpink;
+        }
+        .danmu{
+        	font-size: 20px;
+        	display: inline-block;
+        	position: relative;
+        }
+        #danmus{
+        	display: inline-block;
+        	position: relative;
+        }
+		</style>
+		<title></title>
+	</head>
+	<body>
+		<div id="videoBody">
+			<video src="1.mp4" id="video"></video>
+			<div id="danmus">
+				<p class='danmu'>123123</p>
+				<p class='danmu'>hahahahhah</p>
+			</div>
+		</div>
+		<div>
+        <span id="nowTime">00:00</span>
+        /
+        <span id="totalTime"></span>
+    	</div>
+    	<div id="start">></div>
+    <input type="range" id="volumeControl">
+        <div class="jindutiaoWrap">
+            <div class="jindutiao"></div>
+        </div>
+	</body>
+	<script type="text/javascript">
+		
+
+		var video=document.getElementById('video')
+		var nowTime=document.getElementById('nowTime')
+		var totalTime=document.getElementById('totalTime')
+		var volumeControl=document.getElementById('volumeControl')
+		var jindutiao = document.getElementsByClassName('jindutiao')[0]
+		var start=document.getElementById('start')
+		var danmu=document.getElementsByClassName('danmu')
+		var danmus=document.getElementById('danmus')
+		
+		//time
+		
+		var secondToMin = function(second){
+            var m = parseInt(second / 60)
+            if(m < 10){
+                m = '0' + m
+            }
+            var s = parseInt( second % 60)
+            if(s < 10){
+                s = '0' + s
+            }
+            return m +':'+ s
+        }
+		
+		video.addEventListener('canplay',function(){
+            totalTime.innerHTML = secondToMin(video.duration)
+        })
+        video.addEventListener('timeupdate',function(){
+            nowTime.innerHTML = secondToMin(video.currentTime) 
+            jindutiao.style.width = video.currentTime / video.duration * 500 + 'px'
+        })
+        
+        //play 
+        
+        var play=function(){
+        	video.play();
+        }
+        
+        start.addEventListener('click',play)
+        
+        //volume
+        
+        volumeControl.addEventListener('input',function(){
+            var intValue = parseInt(this.value)
+            video.volume = intValue / 100
+        })
+        
+       	//danmu
+       	
+       	var pxs=0;
+       	var danmuTimes=0;
+		
+		var newDanmu = document.createElement("p");
+		var inDanmu=document.createTextNode('sssssss');
+		
+		newDanmu.appendChild(inDanmu)
+		newDanmu.className='danmu'
+		danmus.appendChild(inDanmu);
+       	
+       	var danmuRun=function(){
+       		pxs=pxs-1;
+       		px=pxs+'px'
+       			danmu[danmuTimes].style.left=px;
+       		t=setTimeout("danmuRun()",10)
+       		}
+	</script>
+</html>
